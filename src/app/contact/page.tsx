@@ -1,15 +1,20 @@
 import React, { Suspense } from 'react';
+import JsonLd, { breadcrumbSchema } from '@/components/seo/JsonLd';
+import { pageMetadata } from '@/lib/site';
 import { ArrowUpRight, Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 import PageHero from '@/components/fx/PageHero';
 import MotionReveal from '@/components/MotionReveal';
 import ContactForm from '@/components/contact/ContactForm';
+import ContactFormFromUrl from '@/components/contact/ContactFormFromUrl';
 import OpenStatus from '@/components/contact/OpenStatus';
 
-export const metadata = {
-  title: 'Contact Us',
+export const metadata = pageMetadata({
+  title: 'Contact Us — Get Wholesale Prices',
   description:
-    'Call, WhatsApp or email the Destma Plastic sales desk for wholesale pricing, proforma invoices, factory visits and custom moulding.',
-};
+    'Call 0816 296 5729 or WhatsApp 0814 723 5913 for wholesale plastic crates, bottle caps and chairs. Visit us at 4 Nick-Chuks Street, Ikotun-Egbe Road, Lagos. Open Monday–Saturday, 8am–6pm.',
+  path: '/contact',
+  keywords: ['plastic company contact Lagos', 'plastic manufacturer Ikotun', 'wholesale plastic supplier Lagos'],
+});
 
 const QUICK = [
   { icon: Phone, label: 'Call sales', value: '+234 816 296 5729', href: 'tel:+2348162965729' },
@@ -23,13 +28,10 @@ const NEXT_STEPS = [
   'Goods are loaded and delivered by our own fleet',
 ];
 
-function FormSkeleton() {
-  return <div className="h-[720px] rounded-3xl bg-slate-100 animate-pulse" />;
-}
-
 export default function ContactPage() {
   return (
     <div className="bg-white">
+      <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact' }])} />
       <PageHero
         crumb="Contact"
         eyebrow="Sales desk • replies within 2 hours"
@@ -64,8 +66,8 @@ export default function ContactPage() {
         <div className="absolute inset-0 bg-dots-light [mask-image:linear-gradient(to_bottom,#000,transparent)]" />
         <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           <MotionReveal direction="up" className="lg:col-span-7">
-            <Suspense fallback={<FormSkeleton />}>
-              <ContactForm />
+            <Suspense fallback={<ContactForm />}>
+              <ContactFormFromUrl />
             </Suspense>
           </MotionReveal>
 

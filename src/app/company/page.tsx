@@ -1,4 +1,6 @@
 import React from 'react';
+import JsonLd, { breadcrumbSchema } from '@/components/seo/JsonLd';
+import { pageMetadata } from '@/lib/site';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, Cpu, Factory, Flame, ShieldCheck, TrendingUp, Truck, Zap } from 'lucide-react';
@@ -10,11 +12,13 @@ import ScrollTimeline from '@/components/fx/ScrollTimeline';
 import TestMeters from '@/components/fx/TestMeters';
 import MotionReveal from '@/components/MotionReveal';
 
-export const metadata = {
-  title: 'About Us',
+export const metadata = pageMetadata({
+  title: 'About Us — Plastic Injection Moulding Plant in Lagos',
   description:
-    'Destma Plastic is an injection moulding plant in Ikotun-Egbe, Lagos, making food-grade crates, closures, chairs and household plastics from 100% virgin polymers.',
-};
+    'Destma Plastic runs an injection moulding plant in Ikotun-Egbe, Lagos, with presses up to 1,200 tonnes, robotic part handling and an in-house quality lab. Every product is food-grade virgin plastic.',
+  path: '/company',
+  keywords: ['plastic injection moulding company Lagos', 'plastic factory in Lagos', 'plastic manufacturing plant Nigeria'],
+});
 
 const PILLARS = [
   {
@@ -59,6 +63,7 @@ const TESTS = [
 export default function CompanyPage() {
   return (
     <div className="bg-white">
+      <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About Us', path: '/company' }])} />
       <PageHero
         crumb="About us"
         eyebrow="Ikotun-Egbe, Lagos"

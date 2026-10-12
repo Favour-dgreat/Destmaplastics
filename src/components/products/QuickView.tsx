@@ -138,6 +138,12 @@ export default function QuickView({ product, label, onClose }: QuickViewProps) {
             >
               Request a quote for this product <ArrowRight className="w-4 h-4" />
             </Link>
+            <Link
+              href={`/products/${product.id}`}
+              className="mt-3 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-slate-200 hover:border-green-500 hover:text-green-700 text-slate-700 text-xs font-bold uppercase tracking-widest transition-colors"
+            >
+              View full product page
+            </Link>
           </div>
         </div>
       </div>

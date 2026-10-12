@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import ScrollToTop from "@/components/ScrollToTop";
+import JsonLd, { organizationSchema, websiteSchema } from "@/components/seo/JsonLd";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -21,43 +23,52 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://destmaplastics.com"),
+  metadataBase: new URL(SITE.url),
   title: {
-    default: "Destma Plastic | Quality • Strength • Value",
+    default: "Destma Plastic | Plastic Crates, Bottle Caps & Chairs Manufacturer in Lagos",
     template: "%s | Destma Plastic",
   },
-  description:
-    "Nigeria's premier manufacturer of heavy-duty agricultural harvest crates, precision tamper-evident closures, ergonomic kids seating, and durable household plastics. Quality • Strength • Value.",
+  description: SITE.description,
+  applicationName: SITE.name,
+  authors: [{ name: SITE.legalName, url: SITE.url }],
+  creator: SITE.legalName,
+  publisher: SITE.legalName,
+  category: "manufacturing",
   keywords: [
     "Destma Plastic",
-    "plastic manufacturer Nigeria",
-    "heavy duty harvest crates",
-    "agricultural plastic crates",
-    "beverage closures 38mm",
-    "plastic chairs Nigeria",
-    "kids plastic bear chair",
+    "plastic manufacturer in Lagos",
+    "plastic manufacturing company Nigeria",
     "plastic injection moulding Lagos",
+    "plastic crates Lagos",
+    "harvest crates Nigeria",
+    "agricultural plastic crates",
+    "bottle caps manufacturer Nigeria",
+    "38mm tamper evident closures",
+    "plastic chairs Nigeria",
+    "kids plastic chairs Lagos",
+    "plastic stools Nigeria",
+    "custom plastic moulding Nigeria",
+    "Ikotun Egbe",
   ],
-  icons: {
-    icon: "/images/DestmaPlastics.jpeg",
-    apple: "/images/DestmaPlastics.jpeg",
-  },
+  alternates: { canonical: "/" },
+  formatDetection: { telephone: true, address: true, email: true },
   openGraph: {
     type: "website",
     locale: "en_NG",
-    url: "https://destmaplastics.com",
-    title: "Destma Plastic | Quality • Strength • Value",
-    description:
-      "Durable, precision plastics manufactured in Nigeria. Heavy-duty agro crates, closures, and seating.",
-    siteName: "Destma Plastic",
-    images: [
-      {
-        url: "/images/DestmaPlastics.jpeg",
-        width: 1024,
-        height: 900,
-        alt: "Destma Plastic - Quality • Strength • Value",
-      },
-    ],
+    url: "/",
+    siteName: SITE.name,
+    title: "Destma Plastic | Plastic Crates, Bottle Caps & Chairs Manufacturer in Lagos",
+    description: SITE.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Destma Plastic | Plastic Manufacturer in Lagos",
+    description: SITE.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   },
 };
 
@@ -67,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} scroll-smooth dark`} suppressHydrationWarning>
+    <html lang="en-NG" className={`${outfit.variable} scroll-smooth dark`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -97,6 +108,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-[#050b18] text-slate-100 font-sans antialiased flex flex-col selection:bg-blue-600 selection:text-white" suppressHydrationWarning>
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <ScrollProgress />
         <Header />
         <main className="flex-1 animate-fade-in">{children}</main>

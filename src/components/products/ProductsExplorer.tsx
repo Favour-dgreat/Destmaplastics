@@ -3,44 +3,17 @@
 import React, { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
 import { ArrowRight, Eye, Search, X } from 'lucide-react';
 import { PRODUCTS, type Product } from '@/data/plasticsData';
 import TiltCard from '@/components/fx/TiltCard';
 import QuickView from './QuickView';
 import { swatchFor } from './swatches';
+import { CATEGORIES, CATEGORY_LABEL } from './categories';
 
-const CATEGORIES = [
-  { id: 'all', label: 'All Products' },
-  { id: 'crates', label: 'Crates' },
-  { id: 'closures', label: 'Caps & Closures' },
-  { id: 'furniture', label: 'Chairs' },
-  { id: 'stools', label: 'Stools' },
-  { id: 'drinkware', label: 'Drinkware' },
-];
-
-const CATEGORY_LABEL: Record<string, string> = {
-  crates: 'Crates & Logistics',
-  closures: 'Caps & Closures',
-  furniture: 'Chairs & Furniture',
-  stools: 'Kids & Play Stools',
-  drinkware: 'Bottles & Drinkware',
-  custom: 'Custom Moulding',
-};
-
-export default function ProductsExplorer() {
-  const searchParams = useSearchParams();
-  const fromUrl = searchParams.get('category') ?? 'all';
-  const [category, setCategory] = useState(CATEGORIES.some((c) => c.id === fromUrl) ? fromUrl : 'all');
+export default function ProductsExplorer({ initialCategory = 'all' }: { initialCategory?: string }) {
+  const [category, setCategory] = useState(initialCategory);
   const [query, setQuery] = useState('');
   const [active, setActive] = useState<Product | null>(null);
-
-  // Keep in sync when the header dropdown links to a different category
-  const [lastUrl, setLastUrl] = useState(fromUrl);
-  if (fromUrl !== lastUrl) {
-    setLastUrl(fromUrl);
-    if (CATEGORIES.some((c) => c.id === fromUrl)) setCategory(fromUrl);
-  }
 
   // Sliding pill behind the active filter
   const barRef = useRef<HTMLDivElement>(null);
@@ -154,7 +127,11 @@ export default function ProductsExplorer() {
 
                   <div className="p-6 flex flex-col flex-1 border-t border-slate-100">
                     <span className="text-[11px] font-bold uppercase tracking-widest text-green-600">{CATEGORY_LABEL[p.category]}</span>
-                    <h3 className="mt-1.5 text-lg font-black uppercase leading-snug text-slate-900">{p.name}</h3>
+                    <h3 className="mt-1.5 text-lg font-black uppercase leading-snug text-slate-900">
+                      <Link href={`/products/${p.id}`} className="hover:text-green-700 transition-colors">
+                        {p.name}
+                      </Link>
+                    </h3>
                     <p className="mt-2 text-sm text-slate-500 leading-relaxed">{p.tagline}</p>
 
                     <div className="mt-5 mb-6 flex items-center justify-between gap-4">
@@ -178,12 +155,12 @@ export default function ProductsExplorer() {
                       >
                         Inquire <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                       </Link>
-                      <button
-                        onClick={() => setActive(p)}
+                      <Link
+                        href={`/products/${p.id}`}
                         className="px-4 py-3 rounded-xl border border-slate-200 text-slate-700 hover:border-green-500 hover:text-green-700 text-xs font-bold uppercase tracking-widest transition-colors"
                       >
                         Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </TiltCard>

@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useMemo, useState } from 'react';
-import { useSearchParams } from 'next/navigation';
 import confetti from 'canvas-confetti';
 import { ArrowRight, Check, Send } from 'lucide-react';
 import { PRODUCTS } from '@/data/plasticsData';
@@ -44,9 +43,8 @@ function Field({
   );
 }
 
-export default function ContactForm() {
-  const searchParams = useSearchParams();
-  const fromUrl = searchParams.get('product');
+export default function ContactForm({ initialProduct = null }: { initialProduct?: string | null }) {
+  const fromUrl = initialProduct;
 
   // A product linked from the catalogue is pre-selected, even if it isn't in the list
   const options = useMemo(
@@ -57,12 +55,6 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', message: '' });
   const [products, setProducts] = useState<string[]>(fromUrl ? [fromUrl] : []);
   const [sent, setSent] = useState(false);
-
-  const [lastUrl, setLastUrl] = useState(fromUrl);
-  if (fromUrl !== lastUrl) {
-    setLastUrl(fromUrl);
-    if (fromUrl) setProducts((prev) => (prev.includes(fromUrl) ? prev : [fromUrl, ...prev]));
-  }
 
   const set = (key: keyof typeof form) => (v: string) => setForm((f) => ({ ...f, [key]: v }));
   const toggle = (name: string) =>

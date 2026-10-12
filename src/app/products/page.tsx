@@ -1,16 +1,21 @@
 import React, { Suspense } from 'react';
+import JsonLd, { breadcrumbSchema } from '@/components/seo/JsonLd';
+import { pageMetadata } from '@/lib/site';
 import Link from 'next/link';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import FactoryHero from '@/components/FactoryHero';
 import Ticker from '@/components/fx/Ticker';
 import MotionReveal from '@/components/MotionReveal';
 import ProductsExplorer from '@/components/products/ProductsExplorer';
+import ProductsExplorerFromUrl from '@/components/products/ProductsExplorerFromUrl';
 
-export const metadata = {
-  title: 'Products',
+export const metadata = pageMetadata({
+  title: 'Plastic Crates, Bottle Caps, Chairs & Stools',
   description:
-    'Heavy-duty harvest crates, tamper-evident closures, kids chairs and stools, and drinkware — precision moulded from 100% virgin polymers in Nigeria.',
-};
+    'Shop Destma Plastic products made in Lagos: 500kg-rated harvest crates, 38mm tamper-evident bottle caps, cosmetic flip-top caps, kids bear chairs, folding chairs, play stools and hydration flasks. Wholesale prices, delivery across Nigeria.',
+  path: '/products',
+  keywords: ['plastic crates Lagos', 'harvest crates for sale Nigeria', 'bottle caps supplier Nigeria', 'plastic chairs wholesale Lagos', 'kids plastic chairs', 'plastic stools Nigeria'],
+});
 
 const CUSTOM_STEPS = [
   { n: '01', title: 'Share your idea', body: 'Send a sketch, sample or drawing and your target volumes.' },
@@ -19,21 +24,10 @@ const CUSTOM_STEPS = [
   { n: '04', title: 'Mass production', body: 'High-cavity runs with delivery anywhere in Nigeria.' },
 ];
 
-function GridSkeleton() {
-  return (
-    <div className="bg-white">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
-        {Array.from({ length: 6 }, (_, i) => (
-          <div key={i} className="h-[460px] rounded-3xl bg-slate-100 animate-pulse" />
-        ))}
-      </div>
-    </div>
-  );
-}
-
 export default function ProductsPage() {
   return (
     <div className="bg-white">
+      <JsonLd data={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Products', path: '/products' }])} />
       <FactoryHero
         actions={
           <>
@@ -57,8 +51,9 @@ export default function ProductsPage() {
       <Ticker items={['Harvest crates', 'Beverage closures', 'Kids chairs', 'Play stools', 'Hydration flasks', 'Cosmetic caps', 'Custom OEM moulds']} />
 
       <div id="catalogue" className="scroll-mt-24">
-        <Suspense fallback={<GridSkeleton />}>
-          <ProductsExplorer />
+        {/* The fallback is the full, server-rendered grid, so every product is in the HTML for search engines */}
+        <Suspense fallback={<ProductsExplorer />}>
+          <ProductsExplorerFromUrl />
         </Suspense>
       </div>
 
