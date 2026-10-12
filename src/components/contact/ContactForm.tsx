@@ -79,7 +79,7 @@ export default function ContactForm() {
 - Products: ${products.length ? products.join(', ') : 'Not specified'}
 - Message: ${form.message}`;
 
-    window.open(`https://wa.me/234800337862?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/2348147235913?text=${encodeURIComponent(text)}`, '_blank');
     setSent(true);
 
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {

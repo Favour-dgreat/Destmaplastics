@@ -64,7 +64,7 @@ export default function QuoteModal({
 - Destination State: ${formData.location}
 - Specifications/Notes: ${formData.notes || 'None'}`;
 
-    window.open(`https://wa.me/234800337862?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/2348147235913?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

@@ -65,7 +65,7 @@ export default function QuoteCalculator({ onOpenDirectQuote }: QuoteCalculatorPr
 - Estimated Unit Price: ₦${unitPrice.toLocaleString()}
 Please confirm inventory availability and logistics dispatch for this order.`;
 
-    window.open(`https://wa.me/234800337862?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/2348147235913?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

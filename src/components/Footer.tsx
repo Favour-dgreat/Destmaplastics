@@ -87,9 +87,15 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 group">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 group-hover:text-white transition-colors" />
-                <a href="tel:+234800337862" className="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
-                  +234 (0) 800 DESTMA • +234 803 337 8620
-                </a>
+                <span>
+                  <a href="https://wa.me/2348147235913" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    +234 814 723 5913 (WhatsApp)
+                  </a>
+                  <span className="text-white/25"> • </span>
+                  <a href="tel:+2348162965729" className="hover:text-white transition-colors">
+                    +234 816 296 5729
+                  </a>
+                </span>
               </li>
               <li className="flex items-center gap-2.5 group">
                 <Mail className="w-4 h-4 text-sky-400 shrink-0 group-hover:text-white transition-colors" />

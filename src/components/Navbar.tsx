@@ -46,11 +46,11 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
           </div>
           <div className="flex items-center gap-4 text-xs font-bold ml-auto">
             <a
-              href="tel:+234800337862"
+              href="tel:+2348147235913"
               className="flex items-center gap-1.5 text-white hover:text-amber-200 transition-colors"
             >
               <PhoneCall className="w-3.5 h-3.5 text-amber-300" />
-              <span>+234 (0) 800 DESTMA</span>
+              <span>+234 814 723 5913</span>
             </a>
             <span className="text-white/40 hidden md:inline">|</span>
             <span className="hidden md:inline text-amber-200 font-semibold">
@@ -197,7 +197,7 @@ export default function Navbar({ onOpenQuoteModal }: NavbarProps) {
                 <span>Instant B2B Quote</span>
               </button>
               <a
-                href="https://wa.me/234800337862?text=Hello%20Destma%20Plastics,%20I%20would%20like%20to%20enquire%20about%20your%20products."
+                href="https://wa.me/2348147235913?text=Hello%20Destma%20Plastics,%20I%20would%20like%20to%20enquire%20about%20your%20products."
                 target="_blank"
                 rel="noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-sm"

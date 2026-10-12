@@ -12,8 +12,8 @@ export const metadata = {
 };
 
 const QUICK = [
-  { icon: Phone, label: 'Call sales', value: '+234 803 337 8620', href: 'tel:+2348033378620' },
-  { icon: MessageCircle, label: 'WhatsApp us', value: 'Chat with the desk', href: 'https://wa.me/234800337862', external: true },
+  { icon: Phone, label: 'Call sales', value: '+234 816 296 5729', href: 'tel:+2348162965729' },
+  { icon: MessageCircle, label: 'WhatsApp us', value: 'Chat with the desk', href: 'https://wa.me/2348147235913', external: true },
   { icon: Mail, label: 'Email', value: 'info@destmaplastics.com', href: 'mailto:info@destmaplastics.com' },
 ];
 
@@ -91,8 +91,8 @@ export default function ContactPage() {
                   <li className="flex gap-4">
                     <Phone className="w-5 h-5 shrink-0 mt-0.5 text-green-100" />
                     <div className="text-sm">
-                      <a href="tel:+234800337862" className="block font-bold hover:underline underline-offset-4">+234 (0) 800 DESTMA <span className="font-normal text-green-100">· toll-free</span></a>
-                      <a href="tel:+2348033378620" className="block mt-1 font-bold hover:underline underline-offset-4">+234 803 337 8620 <span className="font-normal text-green-100">· wholesale</span></a>
+                      <a href="https://wa.me/2348147235913" target="_blank" rel="noopener noreferrer" className="block font-bold hover:underline underline-offset-4">+234 814 723 5913 <span className="font-normal text-green-100">· WhatsApp</span></a>
+                      <a href="tel:+2348162965729" className="block mt-1 font-bold hover:underline underline-offset-4">+234 816 296 5729 <span className="font-normal text-green-100">· calls</span></a>
                     </div>
                   </li>
                   <li className="flex gap-4">

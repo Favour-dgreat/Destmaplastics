@@ -86,7 +86,7 @@ export default function ProductsPage() {
                   Start a custom run <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a
-                  href="https://wa.me/234800337862"
+                  href="https://wa.me/2348147235913"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-4 rounded-xl border border-white/40 hover:bg-white/10 text-white text-xs font-bold uppercase tracking-widest transition-colors fluid-button"

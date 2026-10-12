@@ -70,12 +70,12 @@ export default function Header() {
 
               {/* Cell 2: Two Phone Numbers */}
               <div className="xl:border-r border-white/20 px-5 flex items-center justify-center gap-4 text-slate-300 whitespace-nowrap">
-                <a href="tel:+234800337862" className="hover:text-white transition-colors">
-                  +234 (0) 800 DESTMA
+                <a href="https://wa.me/2348147235913" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  WhatsApp: +234 814 723 5913
                 </a>
                 <span className="hidden xl:inline text-white/25">•</span>
-                <a href="tel:+2348033378620" className="hidden xl:inline hover:text-white transition-colors">
-                  +234 803 337 8620
+                <a href="tel:+2348162965729" className="hidden xl:inline hover:text-white transition-colors">
+                  +234 816 296 5729
                 </a>
               </div>
 
@@ -272,7 +272,7 @@ export default function Header() {
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Inquiries</span>
-              <span>+234 (0) 800 DESTMA • +234 803 337 8620</span>
+              <span>WhatsApp: +234 814 723 5913 • Calls: +234 816 296 5729</span>
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Operating Hours</span>

@@ -27,7 +27,7 @@ export default function ContactAndFooter() {
 - Interest: ${formData.interest}
 - Message: ${formData.message}`;
 
-    window.open(`https://wa.me/234800337862?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://wa.me/2348147235913?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
@@ -67,8 +67,8 @@ export default function ContactAndFooter() {
                     </div>
                     <div>
                       <div className="text-xs text-slate-500 font-bold uppercase">Direct Telephone & WhatsApp</div>
-                      <a href="tel:+234800337862" className="text-sm font-bold text-slate-900 hover:text-blue-600">
-                        +234 (0) 800 DESTMA / +234 803 000 0000
+                      <a href="tel:+2348147235913" className="text-sm font-bold text-slate-900 hover:text-blue-600">
+                        +234 814 723 5913 / +234 803 000 0000
                       </a>
                     </div>
                   </div>

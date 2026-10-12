@@ -373,7 +373,7 @@ export default function ProductCatalog({ onSelectProductForQuote }: ProductCatal
                   </button>
 
                   <a
-                    href={`https://wa.me/234800337862?text=Hello%20Destma%20Plastics,%20I%20am%20interested%20in%20ordering%20the%20${encodeURIComponent(
+                    href={`https://wa.me/2348147235913?text=Hello%20Destma%20Plastics,%20I%20am%20interested%20in%20ordering%20the%20${encodeURIComponent(
                       activeModalProduct.name
                     )}`}
                     target="_blank"
