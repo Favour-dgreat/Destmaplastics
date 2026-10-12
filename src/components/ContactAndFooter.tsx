@@ -79,8 +79,8 @@ export default function ContactAndFooter() {
                     </div>
                     <div>
                       <div className="text-xs text-slate-500 font-bold uppercase">Official Enquiries & RFPs</div>
-                      <a href="mailto:info@destmaplastics.com" className="text-sm font-bold text-slate-900 hover:text-emerald-600">
-                        orders@destmaplastics.com / info@destmaplastics.com
+                      <a href="mailto:support@destmaplastics.com" className="text-sm font-bold text-slate-900 hover:text-emerald-600">
+                        support@destmaplastics.com
                       </a>
                     </div>
                   </div>

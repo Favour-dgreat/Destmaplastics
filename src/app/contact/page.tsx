@@ -14,7 +14,7 @@ export const metadata = {
 const QUICK = [
   { icon: Phone, label: 'Call sales', value: '+234 816 296 5729', href: 'tel:+2348162965729' },
   { icon: MessageCircle, label: 'WhatsApp us', value: 'Chat with the desk', href: 'https://wa.me/2348147235913', external: true },
-  { icon: Mail, label: 'Email', value: 'info@destmaplastics.com', href: 'mailto:info@destmaplastics.com' },
+  { icon: Mail, label: 'Email', value: 'support@destmaplastics.com', href: 'mailto:support@destmaplastics.com' },
 ];
 
 const NEXT_STEPS = [

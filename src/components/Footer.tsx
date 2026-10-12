@@ -99,8 +99,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 group">
                 <Mail className="w-4 h-4 text-sky-400 shrink-0 group-hover:text-white transition-colors" />
-                <a href="mailto:info@destmaplastics.com" className="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
-                  info@destmaplastics.com
+                <a href="mailto:support@destmaplastics.com" className="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
+                  support@destmaplastics.com
                 </a>
               </li>
             </ul>

@@ -98,8 +98,7 @@ export default function ContactForm() {
         </svg>
         <h3 className="mt-6 text-2xl font-black uppercase text-slate-900">Message on its way!</h3>
         <p className="mt-3 text-sm text-slate-500 max-w-md mx-auto leading-relaxed">
-          WhatsApp has opened with your details filled in — just tap send. Our sales desk usually replies within
-          2 business hours.
+          WhatsApp has opened with your details filled in — just tap send. Our sales desk usually replies as soon as possible
         </p>
         <button
           onClick={() => setSent(false)}
@@ -118,7 +117,7 @@ export default function ContactForm() {
     >
       <span className="text-xs font-bold uppercase tracking-[0.25em] text-green-600">Request a quote</span>
       <h2 className="mt-2 text-2xl sm:text-3xl font-black uppercase text-slate-900">Tell us what you need</h2>
-      <p className="mt-2 text-sm text-slate-500">We&apos;ll come back with wholesale pricing within 2 business hours.</p>
+      <p className="mt-2 text-sm text-slate-500">We&apos;ll come back with wholesale pricing as soon as possible.</p>
 
       <div className="mt-8 grid sm:grid-cols-2 gap-4">
         <Field label="Full name" required value={form.name} onChange={set('name')} />

@@ -272,7 +272,7 @@ export default function Header() {
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Inquiries</span>
-              <span>WhatsApp: +234 814 723 5913 • Calls: +234 816 296 5729</span>
+              <span> +234 814 723 5913 • +234 816 296 5729</span>
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Operating Hours</span>
