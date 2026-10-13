@@ -3,7 +3,8 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { PRODUCTS } from '@/data/plasticsData';
 
 interface ProductImageItem {
   id: string;
@@ -12,56 +13,12 @@ interface ProductImageItem {
   alt: string;
 }
 
-const PRODUCT_IMAGES: ProductImageItem[] = [
-  {
-    id: 'crate-yellow',
-    image: '/images/1ONtk.jpg',
-    href: '/products?category=crates',
-    alt: 'AgroMax Heavy-Duty Agricultural Harvest Crate',
-  },
-  {
-    id: 'closure-blue',
-    image: '/images/LtNRt.jpg',
-    href: '/products?category=closures',
-    alt: 'AeroSeal 38mm Tamper-Evident Closure',
-  },
-  {
-    id: 'chair-bear',
-    image: '/images/HS4hb.jpg',
-    href: '/products?category=furniture',
-    alt: 'Destma Toddler Comfort Bear Nursery Chair',
-  },
-  {
-    id: 'stool-reinforced',
-    image: '/images/fT56I.jpg',
-    href: '/products?category=furniture',
-    alt: 'WonderStool Reinforced Heavy Commercial Stool',
-  },
-  {
-    id: 'crate-blue-stack',
-    image: '/images/cAnbr.jpg',
-    href: '/products?category=crates',
-    alt: 'AgroMax Perforated Plastic Crates Stack',
-  },
-  {
-    id: 'closures-variety',
-    image: '/images/degBw.jpg',
-    href: '/products?category=closures',
-    alt: 'Precision Hermetic Bottle Caps and Closures',
-  },
-  {
-    id: 'crates-pallet',
-    image: '/images/ym3ir.jpg',
-    href: '/products?category=crates',
-    alt: 'High-Density Polyethylene Harvest Crates',
-  },
-  {
-    id: 'chairs-pair',
-    image: '/images/TCbPv.jpg',
-    href: '/products?category=furniture',
-    alt: 'Comfort Nursery Ergonomic Chairs',
-  },
-];
+const PRODUCT_IMAGES: ProductImageItem[] = PRODUCTS.filter((p) => p.category !== 'furniture').map((p) => ({
+  id: p.id,
+  image: p.image,
+  href: `/products/${p.id}`,
+  alt: p.name,
+}));
 
 export default function FeaturedProductsSlider() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -123,10 +80,10 @@ export default function FeaturedProductsSlider() {
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-xs font-bold uppercase tracking-widest mb-2">
-            <span>TOP PRODUCTS IN THE MARKET</span>
+            <span>PET • HDPE • PP product range</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-slate-900 tracking-tight">
-            Produced with High Precision
+            What we make
           </h2>
         </div>
 

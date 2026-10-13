@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Check, ChevronRight, MessageCircle, Recycle, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, ChevronRight, Factory, MessageCircle, ShieldCheck } from 'lucide-react';
 import { PRODUCTS } from '@/data/plasticsData';
 import { CATEGORY_LABEL } from '@/components/products/categories';
 import { swatchFor } from '@/components/products/swatches';
@@ -68,11 +68,10 @@ async function ProductDetails({ params }: Props) {
 
   const specs = [
     ['Material', product.specs.material],
-    ['Size / Volume', product.specs.capacityOrSize],
-    ['Load / Pressure', product.specs.stackingLoad],
-    ['Temperature range', product.specs.temperatureRange],
-    ['Food-grade', product.specs.foodGrade ? 'Yes — certified food-contact safe' : 'Industrial grade'],
-    ['Recyclable', product.specs.recyclable ? 'Yes' : 'No'],
+    ['Process', product.specs.process],
+    ['Size / range', product.specs.range],
+    ['Neck finish', product.specs.neck],
+    ['Daily output', product.specs.dailyOutput],
     ['Minimum order', product.specs.moq],
   ].filter(([, v]) => v) as [string, string][];
 
@@ -116,18 +115,14 @@ async function ProductDetails({ params }: Props) {
             <p className="mt-4 text-base text-slate-600 leading-relaxed">{product.description}</p>
 
             <div className="mt-6 flex flex-wrap gap-2">
-              {product.specs.foodGrade && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Food grade
-                </span>
-              )}
-              {product.specs.recyclable && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
-                  <Recycle className="w-3.5 h-3.5" /> Recyclable
-                </span>
-              )}
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5" /> {product.specs.material.split(' (')[0]}
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
+                <Factory className="w-3.5 h-3.5" /> Made to specification
+              </span>
               <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold uppercase tracking-wider">
-                MOQ {product.specs.moq}
+                MOQ on request
               </span>
             </div>
 

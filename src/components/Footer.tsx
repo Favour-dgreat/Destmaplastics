@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
+import { ArrowRight, AtSign, MapPin, Phone, Mail } from 'lucide-react';
+import { SITE } from '@/lib/site';
 
 export default function Footer() {
   return (
@@ -33,8 +34,8 @@ export default function Footer() {
             </Link>
             
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm pt-2">
-              Industrial injection moulding plant specializing in heavy-duty agricultural harvest crates, 
-              tamper-evident closures, and structural seating from 100% certified virgin polymers.
+              Plastic packaging and moulded products from 53 machines in Ikotun-Egbe, Lagos — PET preforms and
+              bottles, pharmaceutical containers, caps and closures, lunch boxes and household products, made to your specification.
             </p>
 
             <div className="pt-2">
@@ -102,6 +103,17 @@ export default function Footer() {
                 <a href="mailto:support@destmaplastics.com" className="hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
                   support@destmaplastics.com
                 </a>
+              </li>
+              <li className="flex items-center gap-2.5 group">
+                <AtSign className="w-4 h-4 text-emerald-400 shrink-0 group-hover:text-white transition-colors" />
+                <span className="flex flex-wrap gap-x-3">
+                  <a href={SITE.social.instagram.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    Instagram {SITE.social.instagram.handle}
+                  </a>
+                  <a href={SITE.social.tiktok.url} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    TikTok {SITE.social.tiktok.handle}
+                  </a>
+                </span>
               </li>
             </ul>
           </div>

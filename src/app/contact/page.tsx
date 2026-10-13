@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import JsonLd, { breadcrumbSchema } from '@/components/seo/JsonLd';
-import { pageMetadata } from '@/lib/site';
-import { ArrowUpRight, Clock, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+import { SITE, pageMetadata } from '@/lib/site';
+import { BRIEF_ITEMS } from '@/data/company';
+import { ArrowUpRight, AtSign, Clock, Mail, MapPin, MessageCircle, Phone, Truck } from 'lucide-react';
 import PageHero from '@/components/fx/PageHero';
 import MotionReveal from '@/components/MotionReveal';
 import ContactForm from '@/components/contact/ContactForm';
@@ -22,10 +23,12 @@ const QUICK = [
   { icon: Mail, label: 'Email', value: 'support@destmaplastics.com', href: 'mailto:support@destmaplastics.com' },
 ];
 
+// Order workflow from the 2026/2027 catalogue
 const NEXT_STEPS = [
-  'We confirm stock, colours and delivery date',
-  'You receive a proforma invoice with volume pricing',
-  'Goods are loaded and delivered by our own fleet',
+  'Requirement — share application, quantity and specification',
+  'Technical review — material, format and process aligned to your brief',
+  'Sample / mould — sample approval and tooling where needed',
+  'Production & QC — controlled production, inspection and delivery',
 ];
 
 export default function ContactPage() {
@@ -101,7 +104,24 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 shrink-0 mt-0.5 text-green-100" />
                     <div className="text-sm">
                       <span className="block font-bold">Monday – Saturday, 8:00 AM – 6:00 PM</span>
-                      <span className="block mt-1 text-green-50/80">24-hour shifts run for contract production.</span>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <Truck className="w-5 h-5 shrink-0 mt-0.5 text-green-100" />
+                    <div className="text-sm">
+                      <span className="block font-bold">Nationwide & export</span>
+                      <span className="block mt-1 text-green-50/80">Lagos-based, with access to the Apapa and Tin Can Island ports and road links for nationwide distribution.</span>
+                    </div>
+                  </li>
+                  <li className="flex gap-4">
+                    <AtSign className="w-5 h-5 shrink-0 mt-0.5 text-green-100" />
+                    <div className="text-sm flex flex-wrap gap-x-5 gap-y-1">
+                      <a href={SITE.social.instagram.url} target="_blank" rel="noopener noreferrer" className="font-bold hover:underline underline-offset-4">
+                        Instagram {SITE.social.instagram.handle}
+                      </a>
+                      <a href={SITE.social.tiktok.url} target="_blank" rel="noopener noreferrer" className="font-bold hover:underline underline-offset-4">
+                        TikTok {SITE.social.tiktok.handle}
+                      </a>
                     </div>
                   </li>
                 </ul>
@@ -118,6 +138,16 @@ export default function ContactPage() {
                       </li>
                     ))}
                   </ol>
+                </div>
+
+                <div className="mt-8 pt-8 border-t border-white/20">
+                  <span className="text-xs font-bold uppercase tracking-[0.25em] text-green-100">What to send us</span>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {BRIEF_ITEMS.map((b) => (
+                      <span key={b} className="px-3 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-bold">{b}</span>
+                    ))}
+                  </div>
+                  <p className="mt-3 text-xs text-green-50/80">The clearer the brief, the faster the technical review.</p>
                 </div>
               </div>
             </aside>

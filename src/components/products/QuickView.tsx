@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Check, Recycle, ShieldCheck, X } from 'lucide-react';
+import { ArrowRight, Check, Factory, ShieldCheck, X } from 'lucide-react';
 import type { Product } from '@/data/plasticsData';
 import { swatchFor } from './swatches';
 
@@ -31,10 +31,11 @@ export default function QuickView({ product, label, onClose }: QuickViewProps) {
 
   const specs = [
     ['Material', product.specs.material],
-    ['Size / Volume', product.specs.capacityOrSize],
-    ['Load / Pressure', product.specs.stackingLoad],
-    ['Temperature', product.specs.temperatureRange],
-    ['Minimum Order', product.specs.moq],
+    ['Process', product.specs.process],
+    ['Size / range', product.specs.range],
+    ['Neck finish', product.specs.neck],
+    ['Daily output', product.specs.dailyOutput],
+    ['Minimum order', product.specs.moq],
   ].filter(([, v]) => v) as [string, string][];
 
   // Portal to <body> so the dialog sits above the sticky header's stacking context
@@ -58,7 +59,7 @@ export default function QuickView({ product, label, onClose }: QuickViewProps) {
               <Image key={gallery[shown]} src={gallery[shown]} alt={product.name} fill sizes="(max-width: 768px) 100vw, 480px" className="object-contain p-6 animate-scale-in" />
             </div>
             {gallery.length > 1 && (
-              <div className="mt-4 flex gap-3">
+              <div className="mt-4 flex flex-wrap gap-3">
                 {gallery.map((src, i) => (
                   <button
                     key={src}
@@ -82,16 +83,12 @@ export default function QuickView({ product, label, onClose }: QuickViewProps) {
             <p className="mt-3 text-sm text-slate-600 leading-relaxed">{product.description}</p>
 
             <div className="mt-5 flex flex-wrap gap-2">
-              {product.specs.foodGrade && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
-                  <ShieldCheck className="w-3.5 h-3.5" /> Food grade
-                </span>
-              )}
-              {product.specs.recyclable && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
-                  <Recycle className="w-3.5 h-3.5" /> Recyclable
-                </span>
-              )}
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
+                <ShieldCheck className="w-3.5 h-3.5" /> {product.specs.material.split(' (')[0]}
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-50 border border-green-200 text-green-700 text-[11px] font-bold uppercase tracking-wider">
+                <Factory className="w-3.5 h-3.5" /> Made to specification
+              </span>
             </div>
 
             <dl className="mt-6 divide-y divide-slate-100 border-y border-slate-100 text-sm">

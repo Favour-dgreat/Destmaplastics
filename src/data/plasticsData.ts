@@ -1,338 +1,430 @@
+// Product families from the Destma Plastic Product & Capability Catalogue (2026 / 2027 edition).
+// Daily output figures are the catalogue's installed-machine estimates; actual output depends on
+// mould, cavity count, cycle time and product weight.
+
+export type Category =
+  | 'preforms'
+  | 'bottles'
+  | 'pharma'
+  | 'closures'
+  | 'food'
+  | 'drinkware'
+  | 'household'
+  | 'crates'
+  | 'furniture';
+
 export interface Product {
   id: string;
   name: string;
-  category: 'crates' | 'closures' | 'furniture' | 'stools' | 'drinkware' | 'custom';
+  category: Category;
   tagline: string;
   description: string;
   image: string;
   secondaryImages?: string[];
   specs: {
     material: string;
-    capacityOrSize?: string;
-    stackingLoad?: string;
-    temperatureRange?: string;
-    foodGrade: boolean;
-    recyclable: boolean;
+    process: string;
+    range: string;
+    neck?: string;
+    dailyOutput?: string;
     colors: string[];
     moq: string;
   };
   features: string[];
   applications: string[];
   badge?: string;
-  isFeatured?: boolean;
 }
+
+const MOQ = 'By product — on request';
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'heavy-duty-agro-crate',
-    name: 'AgroMax Heavy-Duty Harvest Crate',
-    category: 'crates',
-    tagline: 'Engineered for extreme agricultural stacking & cold-chain transit',
-    description: 'High-density polyethylene (HDPE) perforated harvest crate designed for commercial farms, fruit orchards, poultry transport, and supermarket distribution logistics. Features reinforced corner pillars for up to 500kg stacking loads.',
-    image: '/images/1ONtk.jpg',
-    secondaryImages: ['/images/cAnbr.jpg', '/images/ym3ir.jpg'],
+    id: 'pet-preforms',
+    name: 'PET Preforms',
+    category: 'preforms',
+    tagline: 'Precision preforms with repeatable weights and neck finishes for bottle blowing',
+    description:
+      'PET preforms are the starting point for many bottle formats. Our Yongliang preform injection platform produces repeatable weights, neck finishes and customer-specific specifications for subsequent bottle blowing — in clear and a range of colours.',
+    image: '/images/catalogue/pet-preforms.jpg',
+    secondaryImages: ['/images/catalogue/banner-preforms.jpg', '/images/catalogue/factory-preform-injection.jpg'],
     specs: {
-      material: 'Virgin High-Density Polyethylene (HDPE)',
-      capacityOrSize: '540 x 360 x 300 mm (45 Litres)',
-      stackingLoad: 'Up to 500 kg (10-high stacking)',
-      temperatureRange: '-30°C to +75°C',
-      foodGrade: true,
-      recyclable: true,
-      colors: ['Vibrant Yellow', 'Destma Blue', 'Forest Green', 'Signal Red'],
-      moq: '250 Units'
+      material: 'PET (Polyethylene Terephthalate)',
+      process: 'Preform injection moulding — 6 Yongliang 260-ton machines',
+      range: 'Approx. 12–60 g+; 14 g, 20 g & 21 g in daily production',
+      neck: '28 / 38 / 44 mm neck systems',
+      dailyOutput: '≈ 240,000 preforms per day',
+      colors: ['Clear', 'Blue', 'Green', 'Black', 'White', 'Pink'],
+      moq: MOQ,
     },
     features: [
-      'Reinforced impact-resistant corners and ribs',
-      'Optimized ventilation slots for continuous airflow and freshness',
-      'Ergonomic dual-sided comfort carry handles',
-      'Interlocking base grooves prevent transit slippage',
-      'UV-stabilized resin prevents brittleness under African sun'
+      'Weight consistency checked throughout production',
+      'Visual inspection and neck-finish integrity checks',
+      'Dimensional and colour-consistency checks',
+      'Customer-specific neck and preform specifications',
+      'Suitable for subsequent PET bottle blowing',
     ],
-    applications: ['Poultry & Egg Logistics', 'Citrus & Tomato Farming', 'Bakery Crates', 'Supermarket Distribution'],
-    badge: 'Bestseller',
-    isFeatured: true
+    applications: ['Water', 'Beverages', 'Juice', 'Edible oil', 'Personal care', 'Custom packaging'],
+    badge: '240k / day',
   },
   {
-    id: 'tamper-evident-beverage-cap',
-    name: 'AeroSeal 38mm Tamper-Evident Closure',
-    category: 'closures',
-    tagline: 'Precision hermetic sealing for carbonated drinks & juices',
-    description: 'Precision-moulded tamper-evident drop-ring closure engineered with zero-leakage linerless micro-fins. Designed for high-speed automated bottling lines up to 36,000 bottles per hour.',
-    image: '/images/LtNRt.jpg',
-    secondaryImages: ['/images/C2t26.jpg', '/images/Kb3Zx.jpg'],
+    id: 'pet-bottles',
+    name: 'PET Bottles & Containers',
+    category: 'bottles',
+    tagline: 'Clear, light and shatter-resistant bottles from 100 mL to 2 L+',
+    description:
+      'Injection stretch blow-moulded PET bottles for water, beverages, cosmetics and household liquids. Our 14 bottle-blowing machines run 28 mm water bottles and 150 ml / 200 ml bottles, in round, square, oval and custom forms with matched closures.',
+    image: '/images/catalogue/pet-bottle-preform.jpg',
+    secondaryImages: ['/images/catalogue/factory-blow-moulding-team.jpg', '/images/catalogue/factory-bottle-handling.jpg'],
     specs: {
-      material: 'Polypropylene (PP) / HDPE Food Grade',
-      capacityOrSize: '38mm standard neck finish (PCO 1881 / 1810)',
-      stackingLoad: '12 Bar Internal Gas Pressure Retentive',
-      temperatureRange: '-10°C to +85°C Hot-Fill Capable',
-      foodGrade: true,
-      recyclable: true,
-      colors: ['Royal Blue', 'Pure White', 'Emerald Green', 'Pitch Black'],
-      moq: '50,000 Units'
+      material: 'PET (Polyethylene Terephthalate)',
+      process: 'Injection stretch blow moulding — 14 bottle-blowing machines',
+      range: 'Approx. 100 mL–2.0 L+; round, square, oval and custom forms',
+      neck: '28 / 38 / 44 mm',
+      dailyOutput: '≈ 630,000 bottles per day',
+      colors: ['Clear', 'Custom tints'],
+      moq: MOQ,
     },
     features: [
-      'High-torque ribbed outer grip for smooth consumer opening',
-      'Instant break tamper band gives visual tamper assurance',
-      'Compatible with high-speed automated capping machinery',
-      '100% organoleptic tested to preserve beverage taste'
+      'Clarity, light weight and shatter resistance',
+      '6 machines for 28 mm-neck water bottles',
+      '8 machines for 38 mm and 44 mm-neck bottles',
+      'Matched caps and closures from our injection lines',
     ],
-    applications: ['Water Bottling', 'Carbonated Soft Drinks', 'Fresh Juices & Dairy', 'Pharmaceutical Liquids'],
-    badge: 'ISO 9001 Certified',
-    isFeatured: true
+    applications: ['Water', 'Beverages', 'Cosmetics', 'Household liquids', 'Personal care', 'Specialty packaging'],
+    badge: 'Bottled water',
+  },
+  {
+    id: 'pharmaceutical-bottles',
+    name: 'Pharmaceutical Bottles',
+    category: 'pharma',
+    tagline: 'Rigid HDPE / PP bottles with matched closures, in a full colour range',
+    description:
+      'Rigid plastic bottles and containers for pharmaceutical, nutraceutical, chemical and healthcare packaging, with matched screw caps and tamper-evident options. Pharmaceutical packaging is our largest production share — about 40% of daily output.',
+    image: '/images/catalogue/pharma-bottles.jpg',
+    secondaryImages: ['/images/catalogue/banner-pharma.jpg', '/images/catalogue/hdpe-jar-white.jpg'],
+    specs: {
+      material: 'HDPE / PP',
+      process: 'Blow and injection moulding',
+      range: 'Approx. 30 mL–1.0 L; standard and custom neck / closure formats',
+      dailyOutput: '≈ 618,000 pieces per day across pharma bottles & closures',
+      colors: ['White', 'Pink', 'Green', 'Black', 'Amber', 'Blue'],
+      moq: MOQ,
+    },
+    features: [
+      'Matched caps and secure closure formats',
+      'Screw-cap and tamper-evident options',
+      'Colour and closure made to order',
+      'Custom formats available — specification-led development',
+    ],
+    applications: ['Syrups', 'Capsules', 'Tablets', 'Powders', 'Healthcare products', 'Laboratory packaging'],
+    badge: 'Largest line',
+  },
+  {
+    id: 'hdpe-jars-containers',
+    name: 'HDPE Jars & Rigid Containers',
+    category: 'pharma',
+    tagline: 'Tough, chemical-resistant jars and containers with matched caps',
+    description:
+      'Blow-moulded HDPE and injection-moulded PP jars and rigid containers for drug, household, chemical and industrial products. HDPE brings toughness, chemical resistance and impact strength.',
+    image: '/images/catalogue/hdpe-jar-black.jpg',
+    secondaryImages: ['/images/catalogue/hdpe-jar-white.jpg'],
+    specs: {
+      material: 'HDPE / PP',
+      process: 'HDPE blow moulding — 4 machines; PP injection moulding',
+      range: '150 ml & 200 ml HDPE bottles in daily production; custom sizes',
+      dailyOutput: '≈ 48,000 HDPE bottles per day',
+      colors: ['White', 'Black', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: [
+      'Toughness, chemical resistance and impact strength',
+      'PP drug jars for pharmaceutical applications',
+      'Matched caps and closures',
+      'Custom shapes, sizes and colours on request',
+    ],
+    applications: ['Pharmaceutical', 'Household', 'Chemical', 'Industrial'],
+  },
+  {
+    id: 'caps-closures',
+    name: 'Caps & Closures',
+    category: 'closures',
+    tagline: 'Secure sealing, tamper evidence and dispensing in 28 / 38 / 44 mm',
+    description:
+      'Precision injection-moulded closures matched to the neck and container — 28 mm water caps, 38 mm flip covers, 44 mm covers and customer-specified formats. Tell us the bottle, neck size and function, and we develop the closure around it.',
+    image: '/images/catalogue/caps-closures.jpg',
+    secondaryImages: ['/images/products/closures/screw-caps-four-colours.jpg', '/images/products/closures/blue-screw-cap.jpg', '/images/catalogue/banner-caps.jpg'],
+    specs: {
+      material: 'PP / HDPE',
+      process: 'Injection moulding',
+      range: '28 mm water caps, 38 mm flip covers, 44 mm covers + custom formats',
+      neck: '28 / 38 / 44 mm neck families',
+      dailyOutput: '≈ 360,000 caps & covers per day',
+      colors: ['White', 'Black', 'Green', 'Blue', 'Pink', 'Brown'],
+      moq: MOQ,
+    },
+    features: [
+      'Secure sealing — closures matched to the neck and container',
+      'Tamper-evident formats show the pack has not been opened',
+      'Dispensing closures for liquids and everyday products',
+      'Closure colours matched to your product and brand',
+    ],
+    applications: ['Beverage', 'Pharmaceutical', 'Food', 'Household', 'Personal care', 'Industrial'],
+    badge: '28 · 38 · 44 mm',
+  },
+  {
+    id: 'wide-mouth-jar-lids',
+    name: 'Wide-Mouth Jar Lids',
+    category: 'closures',
+    tagline: 'Ribbed screw lids for jars, tubs and rigid containers',
+    description:
+      'Injection-moulded wide-mouth screw lids with a ribbed grip edge, matched to our HDPE and PP jars and containers — for pharmaceutical, food, household and chemical packaging.',
+    image: '/images/products/closures/white-wide-mouth-lid.jpg',
+    secondaryImages: ['/images/products/closures/black-wide-mouth-lid.jpg'],
+    specs: {
+      material: 'PP / HDPE',
+      process: 'Injection moulding',
+      range: 'Wide-mouth formats matched to the container; custom sizes',
+      colors: ['White', 'Black', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Ribbed edge for easy grip', 'Matched to our jars and rigid containers', 'Colour matched to your product and brand'],
+    applications: ['Pharmaceutical jars', 'Food tubs', 'Household', 'Chemical'],
+  },
+  {
+    id: 'flip-top-dispensing-caps',
+    name: 'Flip-Top Dispensing Caps',
+    category: 'closures',
+    tagline: 'Snap-open dispensing closures for liquids and everyday products',
+    description:
+      'Flip-top dispensing closures that open with one hand and snap shut — for personal care, household liquids and other everyday products. Colours matched to your brand.',
+    image: '/images/products/closures/green-flip-top-cap.jpg',
+    specs: {
+      material: 'PP',
+      process: 'Injection moulding',
+      range: 'Made to your bottle neck finish',
+      colors: ['Green', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['One-hand flip-top opening', 'Controlled dispensing', 'Custom colours and finishes'],
+    applications: ['Personal care', 'Household liquids', 'Cosmetics', 'Food'],
+    badge: 'Dispensing',
+  },
+  {
+    id: 'lunch-boxes-food-containers',
+    name: 'Lunch Boxes & Food Containers',
+    category: 'food',
+    tagline: 'PP food storage and lunch boxes for home, school and hospitality',
+    description:
+      'Oval and square lunch boxes and food-storage containers in single- or multi-compartment designs, with lid and decoration options — for homes, schools, hospitality, retail and food service.',
+    image: '/images/catalogue/lunch-boxes.jpg',
+    secondaryImages: ['/images/catalogue/banner-food-containers.jpg'],
+    specs: {
+      material: 'PP (Polypropylene)',
+      process: 'Injection moulding — Haitian 250-ton and KONZA 170-ton lines',
+      range: 'Approx. 250 mL–5.0 L+; oval and square formats',
+      dailyOutput: '≈ 276,000 per day (240k oval · 36k square)',
+      colors: ['Blue', 'Pink', 'Yellow', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: [
+      'Single- or multi-compartment designs',
+      'Lid and decoration options',
+      'Rigidity and heat resistance of PP',
+      'Hinged closures and custom branding',
+    ],
+    applications: ['Food storage', 'Meal prep', 'School', 'Hospitality', 'Retail', 'Take-away'],
+    badge: 'Food & household',
+  },
+  {
+    id: 'drinking-bottles',
+    name: 'Flip-Lid Sports Bottles',
+    category: 'drinkware',
+    tagline: 'Reusable sports bottles with flip lid, carry loop and clip — colours made to order',
+    description:
+      'Reusable sports and everyday drinking bottles for convenience and portability. Styles, colours, handles, closures and branding can all be developed to your specification.',
+    image: '/images/catalogue/drinking-bottles.jpg',
+    secondaryImages: ['/images/products/drinkware/pink-flip-lid-sports-bottles.jpg', '/images/products/drinkware/red-flip-lid-sports-bottles.jpg'],
+    specs: {
+      material: 'PP / PET',
+      process: 'Injection and blow moulding',
+      range: 'Approx. 250 mL–1.5 L',
+      colors: ['Pink', 'Red', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Flip lid with carry loop and clip', 'Custom colours and handles', 'Choice of closures', 'Your branding and artwork', 'Promotional and retail-ready runs'],
+    applications: ['Sports', 'School', 'Promotional', 'Household', 'Outdoor'],
+  },
+  {
+    id: 'sports-bottles-collapsible-cup',
+    name: 'Sports Bottles with Collapsible Cup',
+    category: 'drinkware',
+    tagline: 'Clear-tinted bottles with a clip-on folding cup',
+    description:
+      'Reusable drinking bottles with a screw lid and a clip-on collapsible cup — a practical pick for school, sports, outdoor and promotional use.',
+    image: '/images/products/drinkware/sports-bottles-collapsible-cup.jpg',
+    secondaryImages: ['/images/catalogue/banner-drinking.jpg'],
+    specs: {
+      material: 'PP / PET',
+      process: 'Injection and blow moulding',
+      range: 'Approx. 250 mL–1.5 L',
+      colors: ['Red', 'Blue', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Clip-on collapsible cup', 'Screw lid with carry loop', 'Branding and custom colours'],
+    applications: ['School', 'Sports', 'Outdoor', 'Promotional'],
+  },
+  {
+    id: 'large-hydration-bottles',
+    name: 'Large Bottles with Carry Handle',
+    category: 'drinkware',
+    tagline: 'Big-capacity bottles with handle, measuring marks and two-way lid',
+    description:
+      'Large reusable drinking bottles with a strap handle, printed volume markings and a lid with a flip spout — in clear and tinted finishes.',
+    image: '/images/products/drinkware/large-bottles-with-handle.jpg',
+    secondaryImages: ['/images/products/drinkware/large-bottles-pair.jpg', '/images/products/drinkware/large-bottles-caps-detail.jpg'],
+    specs: {
+      material: 'PP / PET',
+      process: 'Injection and blow moulding',
+      range: 'Large-capacity formats',
+      colors: ['Clear', 'Grey', 'Pink', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Strap carry handle', 'Printed volume markings', 'Flip-spout lid'],
+    applications: ['Gym & sports', 'Office', 'Outdoor', 'Household'],
+    badge: 'Large size',
+  },
+  {
+    id: 'household-stools',
+    name: 'Household Stools & Utility Products',
+    category: 'household',
+    tagline: 'Durable everyday stools, utility products and organisers',
+    description:
+      'Injection-moulded PP / HDPE stools, utility containers, organisers and other everyday household articles — small to large formats, with dimensions and weight customised to the application.',
+    image: '/images/catalogue/stools.jpg',
+    specs: {
+      material: 'PP / HDPE',
+      process: 'Injection moulding',
+      range: 'Small to large formats; dimensions and weight customised',
+      colors: ['Pink', 'Yellow', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Colour matched to your palette', 'Shape, size and capacity to specification', 'Branding and decoration', 'Mould development to specification'],
+    applications: ['Stools', 'Utility containers', 'Household articles', 'Organisers', 'Consumer goods'],
+  },
+  {
+    id: 'round-printed-stools',
+    name: 'Round Printed Kids Stools',
+    category: 'household',
+    tagline: 'Colourful round stools with a printed cartoon seat',
+    description:
+      'Sturdy round plastic stools with a full-colour printed seat — available in red, green, yellow, pink and blue. Shown here from the side, underneath and on the seat.',
+    image: '/images/products/stools/round-printed-stool-red.jpg',
+    secondaryImages: ['/images/products/stools/round-printed-stool-green.jpg', '/images/products/stools/round-printed-stool-yellow.jpg', '/images/products/stools/round-printed-stool-pink.jpg', '/images/products/stools/round-printed-stool-blue.jpg', '/images/products/stools/round-stool-printed-seat.jpg'],
+    specs: {
+      material: 'PP',
+      process: 'Injection moulding with printed seat',
+      range: 'Kids / low stool size',
+      colors: ['Red', 'Green', 'Yellow', 'Pink', 'Blue'],
+      moq: MOQ,
+    },
+    features: ['Full-colour printed seat', 'Ribbed underside for strength', 'Five colours'],
+    applications: ['Homes', 'Schools', 'Play areas', 'Retail'],
+    badge: '5 colours',
+  },
+  {
+    id: 'square-printed-stools',
+    name: 'Square Printed Stools',
+    category: 'household',
+    tagline: 'Square-seat stools with printed top and reinforced legs',
+    description:
+      'Square plastic stools with a printed seat, carry slots and a ribbed, reinforced underside — in red and blue.',
+    image: '/images/products/stools/square-printed-stool-red.jpg',
+    secondaryImages: ['/images/products/stools/square-printed-stool-red-front.jpg', '/images/products/stools/square-stool-printed-seat.jpg', '/images/products/stools/square-stool-red-underside.jpg', '/images/products/stools/square-stool-blue-underside.jpg'],
+    specs: {
+      material: 'PP',
+      process: 'Injection moulding with printed seat',
+      range: 'Kids / low stool size',
+      colors: ['Red', 'Blue', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Printed seat top', 'Built-in carry slots', 'Ribbed, reinforced underside'],
+    applications: ['Homes', 'Schools', 'Shops', 'Events'],
+  },
+  {
+    id: 'plastic-crates',
+    name: 'Crates & Baskets',
+    category: 'crates',
+    tagline: 'Injection-moulded crates for storage, logistics and agriculture',
+    description:
+      'From small utility crates through heavy-duty industrial formats — for agriculture, logistics, warehousing, distribution and retail handling. Dimensions are customisable; load ratings are mould-specific.',
+    image: '/images/catalogue/crates.jpg',
+    secondaryImages: ['/images/products/crates/yellow-ventilated-crate.jpg', '/images/products/crates/yellow-crate-side.jpg', '/images/products/crates/yellow-crate-open.jpg', '/images/catalogue/banner-crates.jpg'],
+    specs: {
+      material: 'PP / HDPE',
+      process: 'Injection moulding',
+      range: 'Small utility to heavy-duty industrial; custom dimensions',
+      colors: ['Yellow', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Ventilated designs for produce handling', 'Custom dimensions available', 'Load ratings specific to each mould', 'Colour and branding to order'],
+    applications: ['Agriculture', 'Logistics', 'Warehousing', 'Distribution', 'Retail', 'Industrial handling'],
+  },
+  {
+    id: 'coloured-ventilated-crates',
+    name: 'Coloured Ventilated Crates',
+    category: 'crates',
+    tagline: 'Stackable ventilated crates in green and pink',
+    description:
+      'Ventilated plastic crates with side handles in bold colours — shown here in green and pink, from the side, top and underneath. Sizes and colours to order.',
+    image: '/images/products/crates/green-ventilated-crates.jpg',
+    secondaryImages: ['/images/products/crates/pink-ventilated-crates.jpg'],
+    specs: {
+      material: 'PP / HDPE',
+      process: 'Injection moulding',
+      range: 'Custom dimensions; load ratings are mould-specific',
+      colors: ['Green', 'Pink', 'Custom colours'],
+      moq: MOQ,
+    },
+    features: ['Ventilated sides and base', 'Moulded side handles', 'Colour to order'],
+    applications: ['Agriculture', 'Retail display', 'Storage', 'Logistics'],
   },
   {
     id: 'bear-kids-ergonomic-chair',
-    name: 'Destma Toddler Comfort Bear Chair',
+    name: 'Kids Bear Chair',
     category: 'furniture',
-    tagline: 'Shatter-proof, ultra-safe ergonomic seating for classrooms & home',
-    description: 'Moulded with high-resilience polypropylene with zero sharp corners or metal joints. Contoured lumbar support with whimsical bear-ear styling designed for nursery schools, Montessori hubs, and kids rooms.',
-    image: '/images/HS4hb.jpg',
-    secondaryImages: ['/images/TCbPv.jpg'],
+    tagline: 'A playful bear-face chair for little ones',
+    description:
+      'A one-piece moulded plastic children’s chair with a smiling bear-shaped backrest and smooth, glossy finish — made for homes, nurseries, schools and play areas.',
+    image: '/images/products/furniture/kids-bear-chair-pink.jpg',
+    secondaryImages: ['/images/products/furniture/kids-bear-chair-angle.jpg'],
     specs: {
-      material: 'Non-Toxic Food-Contact Grade Polypropylene (PP)',
-      capacityOrSize: '360 x 340 x 510 mm (Seat Height: 260 mm)',
-      stackingLoad: 'Tested up to 90 kg static load',
-      temperatureRange: '-10°C to +60°C',
-      foodGrade: true,
-      recyclable: true,
-      colors: ['Blush Pink', 'Sky Cyan', 'Mint Lime', 'Sunny Yellow'],
-      moq: '100 Units'
+      material: 'PP (Polypropylene)',
+      process: 'Injection moulding',
+      range: 'Children’s size',
+      colors: ['Pink', 'Custom colours'],
+      moq: MOQ,
     },
-    features: [
-      'BPA-free and heavy-metal-free virgin polymers',
-      'Anti-tip splayed leg geometry prevents accidental spills',
-      'Ultra-glossy wipe-clean hygienic surface',
-      'Stackable up to 12 chairs high for compact classroom storage'
-    ],
-    applications: ['Early Childhood Education', 'Daycare Centres', 'Pediatric Clinics', 'Home Playrooms'],
-    badge: 'Parent & School Favorite',
-    isFeatured: true
+    features: ['One-piece moulded design', 'Smooth, rounded edges', 'Glossy, easy-to-wipe surface'],
+    applications: ['Homes', 'Nurseries', 'Schools', 'Play areas'],
+    badge: 'Kids',
   },
   {
     id: 'eco-fold-plastic-chair',
-    name: 'ProFold Heavy-Duty Folding Chair',
+    name: 'Kids Folding Chair',
     category: 'furniture',
-    tagline: 'Lightweight portability meets unyielding structural rigidity',
-    description: 'High-density blow-moulded seat and backrest with integrated carry handle. Engineered for outdoor marquee events, conferences, banquet halls, and institutional gatherings.',
-    image: '/images/hfReH.jpg',
+    tagline: 'A compact children’s chair that folds flat for storage',
+    description:
+      'A lightweight plastic folding chair for children, with a carry-handle cut-out in the backrest — easy to fold away, carry and store.',
+    image: '/images/products/furniture/kids-folding-chair-cream.jpg',
     specs: {
-      material: 'Virgin HDPE + Reinforced Polymer Pivot Pins',
-      capacityOrSize: '440 x 480 x 810 mm (Folded: 980 x 440 x 70 mm)',
-      stackingLoad: 'Rated for 150 kg continuous load',
-      temperatureRange: '-20°C to +70°C All-Weather',
-      foodGrade: false,
-      recyclable: true,
-      colors: ['Ivory White', 'Charcoal Slate', 'Destma Navy'],
-      moq: '50 Units'
+      material: 'PP (Polypropylene)',
+      process: 'Injection moulding',
+      range: 'Children’s size; folds flat',
+      colors: ['Cream', 'Custom colours'],
+      moq: MOQ,
     },
-    features: [
-      'Fast-fold mechanism with anti-pinch hinge protection',
-      'Weather-resistant resin will not rot, rust, or fade in the rain',
-      'Non-marring rubberized foot glides protect interior floors',
-      'Integrated rear ergonomic hand-hold for effortless transport'
-    ],
-    applications: ['Event Rentals & Marquees', 'Churches & Mosques', 'Corporate Auditoriums', 'Hospitality'],
-    badge: 'Heavy Duty',
-    isFeatured: true
+    features: ['Folds flat for storage', 'Built-in carry handle', 'Lightweight and easy to move'],
+    applications: ['Homes', 'Schools', 'Events', 'Outdoor'],
+    badge: 'Kids',
   },
-  {
-    id: 'kids-graphic-square-stool',
-    name: 'Destma WonderStool Reinforced Stool',
-    category: 'stools',
-    tagline: 'Ultra-tough multi-rib internal grid for guaranteed non-collapse',
-    description: 'Featuring in-mould labelling (IML) technology that prevents graphic peeling, scratching, or water damage. Reinforced criss-cross ribbing underneath delivers rock-solid structural integrity.',
-    image: '/images/fT56I.jpg',
-    secondaryImages: ['/images/eFiEt.jpg', '/images/Ru3E1.jpg', '/images/dtmiy.jpg'],
-    specs: {
-      material: 'Impact Copolymer Polypropylene',
-      capacityOrSize: '280 x 280 x 290 mm',
-      stackingLoad: '120 kg Load Tested',
-      temperatureRange: '-15°C to +65°C',
-      foodGrade: true,
-      recyclable: true,
-      colors: ['Ruby Red', 'Destma Blue', 'Sunny Yellow', 'Pastel Pink'],
-      moq: '150 Units'
-    },
-    features: [
-      'In-Mould-Labelled (IML) vivid cartoon surface resists scratch & scrub',
-      'Dual side grip cutouts for quick one-handed carrying',
-      'Reinforced grid truss underneath prevents sagging or snapping',
-      'Slip-resistant textured footings'
-    ],
-    applications: ['Kindergartens', 'Domestic Bathrooms & Kitchens', 'Outdoor Playgrounds', 'Retail Gift Stores'],
-    badge: 'Popular',
-    isFeatured: true
-  },
-  {
-    id: 'kids-graphic-round-stool',
-    name: 'AeroStep Circular Play Stool',
-    category: 'stools',
-    tagline: 'Smooth bevelled edges with concentric radial reinforcement',
-    description: 'Designed for safety and fun. Concentric underside ribbing distributes weight uniformly across all four legs, providing unmatched stability for growing toddlers and energetic play.',
-    image: '/images/WhatsApp Image 2026-10-03 at 09.16.01.jpeg',
-    secondaryImages: ['/images/WhatsApp Image 2026-10-03 at 09.16.07.jpeg', '/images/IsU9j.jpg', '/images/bVbsL.jpg'],
-    specs: {
-      material: 'Pure Polypropylene Copolymer',
-      capacityOrSize: 'Diameter 270 mm x Height 260 mm',
-      stackingLoad: '100 kg Certified',
-      temperatureRange: '-10°C to +60°C',
-      foodGrade: true,
-      recyclable: true,
-      colors: ['Cherry Red', 'Bubblegum Pink', 'Ocean Blue'],
-      moq: '150 Units'
-    },
-    features: [
-      'High-gloss vibrant character top plate',
-      'Rounded radius on all contact surfaces protects against scrapes',
-      'Honeycomb radial web base maximizes load per gram of polymer',
-      'Stackable footprint saves floor space'
-    ],
-    applications: ['Preschools', 'Children Bedroom Seating', 'Study Desks', 'Family Dining Assist'],
-    isFeatured: false
-  },
-  {
-    id: 'pro-sport-hydration-flask',
-    name: 'AeroGrip 1800ml Ergonomic Hydration Flask',
-    category: 'drinkware',
-    tagline: 'Tritan/PP shatter-resistant dual-cap jug with silicon grip',
-    description: 'Large-capacity sport hydration bottle equipped with measurement markers, ergonomic handle loop, textured anti-slip center band, and hygienic flip-lock spout for athletic hydration and daily water goals.',
-    image: '/images/degBw.jpg',
-    secondaryImages: ['/images/IQm6Y.jpg', '/images/oNZnG.jpg'],
-    specs: {
-      material: 'BPA-Free Food Grade PETG / Tritan Body with PP Lid',
-      capacityOrSize: '1,800 ml & 1,600 ml dual markings',
-      stackingLoad: 'Pressure-tested leakproof up to 45° tilt and drop',
-      temperatureRange: '-10°C to +60°C',
-      foodGrade: true,
-      recyclable: true,
-      colors: ['Nordic Sage & Chalk', 'Rose Quartz & Mauve', 'Smoke Charcoal'],
-      moq: '500 Units'
-    },
-    features: [
-      'Dual-opening lid system for ice loading and precision sipping',
-      'One-touch pop-up dust cover protects drinking mouthpiece',
-      'Embossed volume timeline encourages daily hydration target',
-      'Heavy-duty molded bail handle for gym, hiking & outdoor carry'
-    ],
-    applications: ['Athletics & Gym', 'Construction & Field Work', 'School & University', 'Corporate Branded Merchandise'],
-    badge: 'Trending',
-    isFeatured: true
-  },
-  {
-    id: 'cosmetic-fliptop-closure',
-    name: 'VelvetTouch 45mm Cosmetic Flip-Top Cap',
-    category: 'closures',
-    tagline: 'High-aesthetic satin finish with controlled orifice dispensing',
-    description: 'A luxurious deep emerald green dispensing closure designed for premium lotions, shampoos, sanitizers, and body oils. Features active butterfly hinge rated for over 1,500 opens without fatigue.',
-    image: '/images/lqrAE.jpg',
-    secondaryImages: ['/images/C2t26.jpg'],
-    specs: {
-      material: 'Premium Virgin Polypropylene (PP)',
-      capacityOrSize: '45mm snap-on & screw-thread finish',
-      stackingLoad: 'Hermetic valve seals up to 3 Bar',
-      temperatureRange: '-10°C to +70°C',
-      foodGrade: true,
-      recyclable: true,
-      colors: ['Emerald Green', 'Gloss Black', 'Pristine White', 'Custom Metallic'],
-      moq: '25,000 Units'
-    },
-    features: [
-      'Snap-shut audible click confirms secure closure',
-      'Ultra-flat top profile enables upside-down bottle merchandising',
-      'No-drip cut-off orifice prevents container mess',
-      'Chemical-resistant against essential oils and surfactants'
-    ],
-    applications: ['Cosmetics & Skincare', 'Haircare & Shampoos', 'Industrial Detergents', 'Personal Care Packaging'],
-    isFeatured: false
-  }
-];
-
-export const PILLARS = [
-  {
-    icon: 'ShieldCheck',
-    title: 'Uncompromising Quality',
-    subtitle: 'ISO 9001 & Virgin Polymer Formulation',
-    description: 'We source only 100% prime virgin and certified circular polymers. Every batch is analyzed for melt flow index, tensile strength, and impact resistance in our state-of-the-art testing facility.',
-    metric: '99.92%',
-    metricLabel: 'Batch Quality Pass Rate',
-    color: 'from-blue-600 to-cyan-500'
-  },
-  {
-    icon: 'Zap',
-    title: 'Superior Strength',
-    subtitle: 'Extreme Durability for Rough Handling',
-    description: 'Our plastics are specifically formulated with UV inhibitors and impact modifiers to withstand tropical heat, rough transport logistics, and multi-year heavy commercial duty cycles without fading or cracking.',
-    metric: '500kg+',
-    metricLabel: 'Crate Stacking Capacity',
-    color: 'from-emerald-500 to-teal-400'
-  },
-  {
-    icon: 'TrendingUp',
-    title: 'Unbeatable Value',
-    subtitle: 'Factory-Direct Pricing & Fast Turnaround',
-    description: 'By operating advanced high-cavitation electric injection moulding machines with automated robotic pickers, we deliver the lowest cost per unit across West Africa with guaranteed on-time dispatch.',
-    metric: '35%',
-    metricLabel: 'Average Packaging Cost Savings',
-    color: 'from-amber-500 to-yellow-400'
-  }
-];
-
-export const FACTORY_METRICS = [
-  { value: '50M+', label: 'Units Delivered Across Africa', change: '+24% YoY' },
-  { value: '48+', label: 'High-Precision Injection Presses', change: '80T to 1200T Clamp' },
-  { value: '99.8%', label: 'On-Time Logistics Delivery', change: 'Fleet Nationwide' },
-  { value: '100%', label: 'Recyclable Polymer Formulations', change: 'Circular Loop' }
-];
-
-export const TESTIMONIALS = [
-  {
-    quote: "Switching to Destma Plastic's heavy-duty harvest crates reduced our fruit transit damage by over 42%. Their stacking stability on rough rural roads is unmatched in Nigeria.",
-    author: 'Alhaji Mansur Dantata',
-    role: 'Managing Director',
-    company: 'Sahel Agro-Logistics Ltd.',
-    location: 'Kano & Kaduna',
-    rating: 5,
-    tag: 'Agricultural Crates'
-  },
-  {
-    quote: "Destma produces over 800,000 beverage closures for our bottling lines every month. Zero line jamming, pristine hermetic seals, and dependable dispatch schedules.",
-    author: 'Engr. Folake Adeleke',
-    role: 'Operations Director',
-    company: 'Cascade Springs & Beverages',
-    location: 'Ikeja, Lagos',
-    rating: 5,
-    tag: 'Bottling Closures'
-  },
-  {
-    quote: "We outfitted 25 nursery campuses with the Destma Bear Chairs. They are completely indestructible, vibrant, lightweight for the children, and clean up instantly.",
-    author: 'Mrs. Chinyere Okeke',
-    role: 'Head of Procurement',
-    company: 'Beacon International Academies',
-    location: 'Abuja & Port Harcourt',
-    rating: 5,
-    tag: 'School Furniture'
-  }
-];
-
-export const FAQS = [
-  {
-    question: 'Can you produce custom moulds or brand our company logo onto the plastics?',
-    answer: 'Yes! Destma Plastics offers end-to-end OEM and custom mould engineering. We can incorporate your company logo directly into the mould tooling, provide silk-screen printing, or apply high-resolution In-Mould Labelling (IML) for indelible branding.'
-  },
-  {
-    question: 'What raw materials and polymers do you use?',
-    answer: 'We utilize prime virgin High-Density Polyethylene (HDPE), Polypropylene (PP Copolymer and Homopolymer), PETG/Tritan, and food-grade pigments approved by regulatory authorities. For eco-conscious enterprises, we also formulate high-performance post-consumer recycled (PCR) blends.'
-  },
-  {
-    question: 'What is your delivery coverage and typical lead time for bulk orders?',
-    answer: 'We supply nationwide across all 36 states of Nigeria and export to West African corridors (Ghana, Benin, Togo, Côte d’Ivoire). Stock items dispatch within 24 to 48 hours. Custom color or volume production runs typically dispatch in 5 to 7 business days.'
-  },
-  {
-    question: 'Do you offer samples for engineering and quality evaluation?',
-    answer: 'Absolutely. We provide evaluation samples of our crates, closures, and furniture to prospective corporate distributors and manufacturing clients upon request.'
-  },
-  {
-    question: 'Are Destma Plastic products certified food-safe and BPA-free?',
-    answer: 'Yes. All our food containers, water bottles, produce crates, and beverage closures are 100% BPA-free, non-toxic, and conform to international food contact hygiene standards.'
-  }
 ];

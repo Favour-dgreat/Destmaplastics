@@ -12,11 +12,14 @@ export default function Header() {
   const pathname = usePathname();
 
   const productCategories = [
-    { name: 'Industrial Harvest Crates (500kg Load)', href: '/products?category=crates' },
-    { name: 'AeroSeal™ Tamper-Evident Closures (38mm)', href: '/products?category=closures' },
-    { name: 'Ergonomic Institutional & Nursery Seating', href: '/products?category=furniture' },
-    { name: 'Heavy Reinforced Household & Commercial', href: '/products?category=household' },
-    { name: 'Custom Mould Tooling & OEM Production', href: '/products' },
+    { name: 'PET Preforms & Bottles', href: '/products?category=preforms' },
+    { name: 'Pharmaceutical Bottles & Jars', href: '/products?category=pharma' },
+    { name: 'Caps & Closures (28 / 38 / 44 mm)', href: '/products?category=closures' },
+    { name: 'Lunch Boxes & Food Containers', href: '/products?category=food' },
+    { name: 'Drinking Bottles', href: '/products?category=drinkware' },
+    { name: 'Stools, Crates & Household', href: '/products?category=household' },
+    { name: 'Kids Chairs', href: '/products?category=furniture' },
+    { name: 'Custom Moulds • OEM • Private Label', href: '/products#catalogue' },
   ];
 
   return (

@@ -5,8 +5,12 @@ export const SITE = {
   url: 'https://destmaplastics.com',
   tagline: 'Quality • Strength • Value',
   description:
-    'Destma Plastic is a plastic injection moulding manufacturer in Ikotun-Egbe, Lagos, making heavy-duty harvest crates, tamper-evident bottle caps, kids chairs, stools and drinkware from 100% food-grade virgin polymers.',
-  email: 'info@destmaplastics.com',
+    'Destma Plastic is a Lagos plastic manufacturer with 53 machines making PET preforms, PET bottles, pharmaceutical bottles, caps and closures, lunch boxes, drinking bottles, stools and crates — about 1.55 million pieces a day, with OEM, ODM and private-label production.',
+  email: 'support@destmaplastics.com',
+  social: {
+    instagram: { handle: '@destmaglobal', url: 'https://www.instagram.com/destmaglobal' },
+    tiktok: { handle: '@destma_global', url: 'https://www.tiktok.com/@destma_global' },
+  },
   whatsapp: '+2348147235913',
   phone: '+2348162965729',
   address: {
@@ -17,7 +21,7 @@ export const SITE = {
   },
   hours: { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'], opens: '08:00', closes: '18:00' },
   // Bump when page content changes meaningfully; used as the sitemap's lastModified.
-  updated: '2026-10-12',
+  updated: '2026-10-13',
 } as const;
 
 export const absoluteUrl = (path = '/') => new URL(path, SITE.url).toString();

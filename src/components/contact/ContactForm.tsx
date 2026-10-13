@@ -148,7 +148,7 @@ export default function ContactForm({ initialProduct = null }: { initialProduct?
       </fieldset>
 
       <div className="mt-7">
-        <Field label="Quantities, delivery city, colours or branding…" textarea value={form.message} onChange={set('message')} />
+        <Field label="Product spec, quantity, colour, neck/closure, destination…" textarea value={form.message} onChange={set('message')} />
       </div>
 
       <button

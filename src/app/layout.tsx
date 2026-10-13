@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import ScrollToTop from "@/components/ScrollToTop";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import JsonLd, { organizationSchema, websiteSchema } from "@/components/seo/JsonLd";
 import { SITE } from "@/lib/site";
 import "./globals.css";
@@ -25,7 +26,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Destma Plastic | Plastic Crates, Bottle Caps & Chairs Manufacturer in Lagos",
+    default: "Destma Plastic | PET Preforms, Bottles, Caps & Plastic Packaging Manufacturer in Lagos",
     template: "%s | Destma Plastic",
   },
   description: SITE.description,
@@ -39,14 +40,18 @@ export const metadata: Metadata = {
     "plastic manufacturer in Lagos",
     "plastic manufacturing company Nigeria",
     "plastic injection moulding Lagos",
-    "plastic crates Lagos",
-    "harvest crates Nigeria",
-    "agricultural plastic crates",
+    "Destma Global",
+    "PET preforms Nigeria",
+    "PET bottles manufacturer Lagos",
+    "pharmaceutical bottles Nigeria",
+    "HDPE containers Nigeria",
     "bottle caps manufacturer Nigeria",
-    "38mm tamper evident closures",
-    "plastic chairs Nigeria",
-    "kids plastic chairs Lagos",
+    "28mm 38mm 44mm closures",
+    "lunch boxes manufacturer Lagos",
+    "plastic crates Lagos",
     "plastic stools Nigeria",
+    "OEM plastic manufacturing Nigeria",
+    "private label plastic packaging",
     "custom plastic moulding Nigeria",
     "Ikotun Egbe",
   ],
@@ -57,7 +62,7 @@ export const metadata: Metadata = {
     locale: "en_NG",
     url: "/",
     siteName: SITE.name,
-    title: "Destma Plastic | Plastic Crates, Bottle Caps & Chairs Manufacturer in Lagos",
+    title: "Destma Plastic | PET Preforms, Bottles, Caps & Plastic Packaging Manufacturer in Lagos",
     description: SITE.description,
   },
   twitter: {
@@ -114,6 +119,7 @@ export default function RootLayout({
         <main className="flex-1 animate-fade-in">{children}</main>
         <Footer />
         <ScrollToTop />
+        <FloatingWhatsApp />
       </body>
     </html>
   );

@@ -1,5 +1,9 @@
 // Approximate swatch colours for the product colour names in plasticsData.
 const KEYWORDS: [RegExp, string][] = [
+  [/custom/i, 'conic-gradient(#ef4444,#facc15,#22c55e,#004EAB,#ec4899,#ef4444)'],
+  [/clear/i, 'linear-gradient(135deg,#f8fafc,#e2e8f0 60%,#ffffff)'],
+  [/amber|brown/i, '#7c2d12'],
+  [/cream/i, '#f3ead3'],
   [/metallic/i, 'linear-gradient(135deg,#d4d4d8,#71717a,#e4e4e7)'],
   [/sage/i, 'linear-gradient(135deg,#a3b8a0 50%,#f5f5f0 50%)'],
   [/rose|mauve/i, 'linear-gradient(135deg,#e8b4b8 50%,#b48ea0 50%)'],

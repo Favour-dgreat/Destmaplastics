@@ -47,7 +47,9 @@ export function organizationSchema() {
       { '@type': 'ContactPoint', telephone: SITE.phone, contactType: 'sales', areaServed: 'NG', availableLanguage: ['English'] },
       { '@type': 'ContactPoint', telephone: SITE.whatsapp, contactType: 'customer service', areaServed: 'NG', availableLanguage: ['English'] },
     ],
-    knowsAbout: ['Plastic injection moulding', 'Agricultural harvest crates', 'Tamper-evident bottle closures', 'Plastic chairs and stools', 'Custom OEM plastic moulding'],
+    alternateName: 'Destma Global',
+    sameAs: [SITE.social.instagram.url, SITE.social.tiktok.url],
+    knowsAbout: ['Injection moulding', 'PET preform injection', 'PET bottle blowing', 'HDPE blow moulding', 'Pharmaceutical packaging', 'Caps and closures', 'Food packaging', 'OEM / ODM / private-label plastic manufacturing'],
   };
 }
 

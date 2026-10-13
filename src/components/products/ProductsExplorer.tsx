@@ -145,7 +145,7 @@ export default function ProductsExplorer({ initialCategory = 'all' }: { initialC
                           />
                         ))}
                       </div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">MOQ {p.specs.moq}</span>
+                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 text-right">{p.specs.material.split(" (")[0]}</span>
                     </div>
 
                     <div className="mt-auto pt-5 border-t border-slate-100 flex items-center gap-3">
