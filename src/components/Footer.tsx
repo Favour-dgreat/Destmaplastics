@@ -8,9 +8,9 @@ export default function Footer() {
   return (
     <footer className="bg-[#03091e] text-white border-t border-white/15 pt-16 pb-12">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-          
+
           {/* Brand Column */}
           <div className="md:col-span-5 space-y-4">
             <Link href="/" className="inline-flex items-center gap-3 group">
@@ -32,7 +32,7 @@ export default function Footer() {
                 </span>
               </div>
             </Link>
-            
+
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm pt-2">
               Plastic packaging and moulded products from 53 machines in Ikotun-Egbe, Lagos — PET preforms and
               bottles, pharmaceutical containers, caps and closures, lunch boxes and household products, made to your specification.
@@ -79,12 +79,12 @@ export default function Footer() {
           {/* Contact Details */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-widest text-white">
-             Contact Details
+              Contact Details
             </h4>
             <ul className="space-y-3 text-xs text-slate-300">
               <li className="flex items-start gap-2.5 group">
                 <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5 group-hover:text-white transition-colors" />
-                <span>4 Nick-Chuks Street, beside NNPC Filling Station, opposite The Synagogue, Ikotun-Egbe Road, Lagos, Nigeria</span>
+                <span>4 Nik-Chuks St, Egbe, Lagos 102213, Lagos/span>
               </li>
               <li className="flex items-center gap-2.5 group">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 group-hover:text-white transition-colors" />

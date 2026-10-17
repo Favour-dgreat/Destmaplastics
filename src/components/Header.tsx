@@ -24,7 +24,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#03091e]/90 backdrop-blur-md border-y border-white/20 text-white transition-all shadow-2xl">
-      
+
       {/* =========================================================================
           DESKTOP BLUEPRINT GRID NAVIGATION (EXACT LAGUNA PRECISION LAYOUT)
           [ LOGO (Full Height) ] | [ TOP: Address | Phones | Hours ] | [ REQUEST A QUOTE ]
@@ -32,7 +32,7 @@ export default function Header() {
          ========================================================================= */}
       <div className="hidden lg:block w-full max-w-[1600px] mx-auto px-4 xl:px-8">
         <div className="border-x border-white/20 flex items-stretch h-[84px]">
-          
+
           {/* ================= COLUMN 1: LOGO BLOCK (FULL HEIGHT) ================= */}
           <div className="shrink-0 border-r border-white/20 flex items-center px-6">
             <Link
@@ -54,7 +54,7 @@ export default function Header() {
                   DESTMA
                 </span>
                 <span className="text-xl xl:text-2xl font-black tracking-widest text-green-500 leading-none font-sans uppercase mt-1">
-                  PLASTIC 
+                  PLASTIC
                 </span>
               </div>
             </Link>
@@ -62,10 +62,10 @@ export default function Header() {
 
           {/* ================= COLUMN 2: MIDDLE (TWO HORIZONTAL ROWS) ================= */}
           <div className="flex-1 flex flex-col justify-between min-w-0">
-            
+
             {/* --- TOP ROW: INDUSTRIAL UTILITY DATA (3 CELLS WITH VERTICAL DIVIDERS) --- */}
             <div className="h-[36px] border-b border-white/20 grid grid-cols-[1.5fr_1.3fr] xl:grid-cols-[1.5fr_1.3fr_0.8fr] items-stretch text-[11px] xl:text-xs font-medium text-slate-300">
-              
+
               {/* Cell 1: Physical Plant Address */}
               <div className="border-r border-white/20 px-5 flex items-center text-slate-300">
                 <span className="whitespace-nowrap">4 Nick-Chuks Street, Ikotun-Egbe Road, Lagos</span>
@@ -91,15 +91,14 @@ export default function Header() {
 
             {/* --- BOTTOM ROW: NAVIGATION BAR (EVENLY DISTRIBUTED, NO VERTICAL DIVIDERS) --- */}
             <nav className="h-[46px] flex items-center justify-between px-6 xl:px-10">
-              
+
               {/* Link 1: HOME */}
               <Link
                 href="/"
-                className={`text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors relative py-1 ${
-                  pathname === '/'
+                className={`text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors relative py-1 ${pathname === '/'
                     ? 'text-white font-black after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#004EAB]'
                     : 'text-slate-300 hover:text-white'
-                }`}
+                  }`}
               >
                 HOME
               </Link>
@@ -112,11 +111,10 @@ export default function Header() {
               >
                 <Link
                   href="/products"
-                  className={`flex items-center gap-1.5 text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors py-1 ${
-                    pathname === '/products'
+                  className={`flex items-center gap-1.5 text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors py-1 ${pathname === '/products'
                       ? 'text-white font-black after:absolute after:bottom-2 after:left-0 after:right-4 after:h-[2px] after:bg-[#004EAB]'
                       : 'text-slate-300 hover:text-white'
-                  }`}
+                    }`}
                 >
                   <span>PRODUCTS</span>
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${productsOpen ? 'rotate-180 text-white' : 'text-slate-400'}`} />
@@ -145,25 +143,23 @@ export default function Header() {
               {/* Link 3: ABOUT US / COMPANY */}
               <Link
                 href="/company"
-                className={`text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors relative py-1 ${
-                  pathname === '/company'
+                className={`text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors relative py-1 ${pathname === '/company'
                     ? 'text-white font-black after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#004EAB]'
                     : 'text-slate-300 hover:text-white'
-                }`}
+                  }`}
               >
                 ABOUT US
               </Link>
 
-             
+
 
               {/* Link 6: CONTACTS */}
               <Link
                 href="/contact"
-                className={`text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors relative py-1 ${
-                  pathname === '/contact'
+                className={`text-xs xl:text-[13px] font-bold tracking-widest uppercase transition-colors relative py-1 ${pathname === '/contact'
                     ? 'text-white font-black after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-[#004EAB]'
                     : 'text-slate-300 hover:text-white'
-                }`}
+                  }`}
               >
                 CONTACT
               </Link>
@@ -190,7 +186,7 @@ export default function Header() {
           MOBILE & TABLET NAVIGATION BAR (< 1024px)
          ========================================================================= */}
       <div className="lg:hidden flex items-center justify-between h-16 px-4">
-        
+
         {/* Mobile Logo */}
         <Link href="/" className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-sm overflow-hidden bg-white p-0.5 border border-white/20 flex items-center justify-center shrink-0">
@@ -204,13 +200,13 @@ export default function Header() {
             <span className="text-lg font-black tracking-wider text-white leading-none">
               DESTMA <span className='text-green-500'>PLASTIC</span>
             </span>
-            
+
           </div>
         </Link>
 
         {/* Mobile Quick Actions */}
         <div className="flex items-center gap-3">
-        
+
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 text-slate-200 hover:text-white border border-white/20 rounded-sm"
@@ -225,43 +221,39 @@ export default function Header() {
       {/* Mobile Drawer with fluid slide-down intro */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-white/20 bg-[#03091e] px-4 py-5 space-y-4 animate-fade-down">
-          
+
           {/* Quick Nav Links */}
           <div className="space-y-1">
             <Link
               href="/"
               onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${
-                pathname === '/' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
-              }`}
+              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${pathname === '/' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
+                }`}
             >
               HOME
             </Link>
             <Link
               href="/products"
               onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${
-                pathname === '/products' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
-              }`}
+              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${pathname === '/products' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
+                }`}
             >
               PRODUCTS
             </Link>
             <Link
               href="/company"
               onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${
-                pathname === '/company' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
-              }`}
+              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${pathname === '/company' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
+                }`}
             >
               ABOUT US
             </Link>
-          
+
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${
-                pathname === '/contact' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
-              }`}
+              className={`block px-4 py-2.5 text-xs font-bold uppercase tracking-widest rounded-sm ${pathname === '/contact' ? 'bg-[#004EAB] text-white' : 'text-slate-300 hover:bg-white/5'
+                }`}
             >
               CONTACT
             </Link>
@@ -271,7 +263,7 @@ export default function Header() {
           <div className="p-3.5 bg-white/5 border border-white/10 rounded-sm text-xs text-slate-300 space-y-2">
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Plant Location</span>
-              <span>4 Nick-Chuks Street, beside NNPC Filling Station, opposite The Synagogue, Ikotun-Egbe Road, Lagos, Nigeria</span>
+              <span>4 Nik-Chuks St, Egbe, Lagos 102213, Lagos/span>
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Inquiries</span>
