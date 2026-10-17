@@ -90,7 +90,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 shrink-0 mt-0.5 text-green-100" />
                     <div>
                       <span className="block text-sm font-black uppercase">Main plant & warehouse</span>
-                      <span className="block mt-1 text-sm text-green-50/90">4 Nik-Chuks St, Egbe, Lagos 102213, Lagos/span>
+                      <span className="block mt-1 text-sm text-green-50/90">4 Nik-Chuks St, Egbe, Lagos 102213, Lagos</span>
                     </div>
                   </li>
                   <li className="flex gap-4">

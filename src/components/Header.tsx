@@ -263,7 +263,7 @@ export default function Header() {
           <div className="p-3.5 bg-white/5 border border-white/10 rounded-sm text-xs text-slate-300 space-y-2">
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Plant Location</span>
-              <span>4 Nik-Chuks St, Egbe, Lagos 102213, Lagos/span>
+              <span>4 Nik-Chuks St, Egbe, Lagos 102213, Lagos</span>
             </div>
             <div>
               <span className="text-[10px] uppercase tracking-wider text-slate-400 block font-bold">Inquiries</span>
