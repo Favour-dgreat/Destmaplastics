@@ -84,7 +84,7 @@ export default function Footer() {
             <ul className="space-y-3 text-xs text-slate-300">
               <li className="flex items-start gap-2.5 group">
                 <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5 group-hover:text-white transition-colors" />
-                <span>4 Nik-Chuks St, Egbe, Lagos 102213, Lagos/span>
+                <span>4 Nik-Chuks St, Egbe, Lagos 102213, Lago</span>
               </li>
               <li className="flex items-center gap-2.5 group">
                 <Phone className="w-4 h-4 text-emerald-400 shrink-0 group-hover:text-white transition-colors" />
